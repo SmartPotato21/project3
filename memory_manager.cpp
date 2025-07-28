@@ -158,12 +158,11 @@ void MemoryManager::processCommand(const std::string &command)
         iss >> pid;
         if (processes.find(pid) != processes.end()) 
         {
-            for (auto &[page, pte] : processes[pid].pageTable) // translate processes' page table into f
+            for (std::pair<const int, PageTableEntry> &entry : processes[pid].pageTable)
             {
-                if (!pte.valid) break;
-                freeFrames.push_front(pte.frameNumber);
-
-                frameToPid.erase(pte.frameNumber);
+                if (!entry.second.valid) break;
+                freeFrames.push_front(entry.second.frameNumber);
+                frameToPid.erase(entry.second.frameNumber);
             }
             processes.erase(pid);
             std::cout << "Freed memory for process " << pid << std::endl;
