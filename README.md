@@ -2,7 +2,7 @@
 
 ## How to Compile
 ```
-g++ -std=c++17 main.cpp memory_manager.cpp -o memory_sim
+g++ -std=c++11 main.cpp memory_manager.cpp -o memory_sim
 ```
 
 ## How to Run
