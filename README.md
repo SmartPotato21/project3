@@ -2,7 +2,7 @@
 
 ## How to Compile
 ```
-g++ -std=c++11 main.cpp memory_manager.cpp -o memory_sim
+g++ -std=c++17 main.cpp memory_manager.cpp -o memory_sim
 ```
 
 ## How to Run
@@ -14,4 +14,5 @@ g++ -std=c++11 main.cpp memory_manager.cpp -o memory_sim
 - Supports memory allocation (`alloc <pid> <pages>`)
 - Virtual-to-physical translation (`access <pid> <vaddr> <read/write>`)
 - Memory deallocation (`free <pid>`)
-- Implements FIFO page replacement (can extend to LRU easily)
+- Frame PID owner table (`view`)
+- Implements FIFO and LRU page replacement, pick via command line
